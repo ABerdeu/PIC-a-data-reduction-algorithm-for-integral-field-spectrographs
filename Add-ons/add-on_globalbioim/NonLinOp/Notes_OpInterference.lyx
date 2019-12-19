@@ -1,0 +1,513 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass extarticle
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 1
+\tocdepth 1
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+Description of a first order multi-plane model.
+ The different planes are supposed to be independant and interact with the
+ incoming plane wave by assuming that this latter was not modified by the
+ upstream planes.
+\end_layout
+
+\begin_layout Standard
+Notations:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $A\times B$
+\end_inset
+
+: matrix multiplication
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $A.B$
+\end_inset
+
+: element wise product
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\frac{A}{B}$
+\end_inset
+
+: element wise division
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $e^{A}$
+\end_inset
+
+: element wise exponentiation
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $A^{\star}$
+\end_inset
+
+: hermitian transposition
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\overline{A}$
+\end_inset
+
+: complex conjugate
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mathcal{R}\left(A\right)$
+\end_inset
+
+: element wisereal part of a complex matrix
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $P_{z_{p}}$
+\end_inset
+
+: 
+\begin_inset Formula $nb_{plane}$
+\end_inset
+
+ propagators on distances equal to 
+\begin_inset Formula $z_{p}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\theta$
+\end_inset
+
+: variable with 
+\begin_inset Formula $nb_{plane}$
+\end_inset
+
+ complex planes 
+\begin_inset Formula $\theta_{p}$
+\end_inset
+
+ describing the complex optical length of the different planes
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $pad$
+\end_inset
+
+: padding operators
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $U_{BP}$
+\end_inset
+
+: background wavefront
+\end_layout
+
+\begin_layout Section
+Coherent interferences
+\end_layout
+
+\begin_layout Standard
+Direct model:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{alignedat}{1}U_{tot}\left(\theta\right) & =U_{BP}+\sum_{p=1}^{nb_{plane}}e^{-ikz_{p}}\left(pad^{-1}\left(P_{z_{p}}\circledast pad\left(e^{\frac{2i\pi}{\lambda}\theta_{p}}-1\right)\right)\right)\\
+ & =U_{BP}+\sum_{p=1}^{nb_{plane}}O_{p}\times\left(e^{\frac{2i\pi}{\lambda}\theta_{p}}-1\right)
+\end{alignedat}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+with 
+\begin_inset Formula $O_{p}=e^{-ikz_{p}}pad^{-1}\circ P_{z_{p}}\circledast pad$
+\end_inset
+
+ a linear operator.
+\end_layout
+
+\begin_layout Standard
+Application of the hermitian transposition of the Jacobian at a given point
+ 
+\begin_inset Formula $\theta$
+\end_inset
+
+ for a given plane 
+\begin_inset Formula $p$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+J_{p}^{\star}\left(\theta\right)=-\frac{2i\pi}{\lambda}e^{-\frac{2i\pi}{\lambda}\theta_{p}}.O_{p}^{\star}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Incoherent interferences
+\end_layout
+
+\begin_layout Standard
+Note on the interference of two incoherent waves 
+\begin_inset Formula $U_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $U_{2}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{alignedat}{1}\left|U_{tot}\right|^{2} & =\left(U_{1}+U_{2}\right)\overline{\left(U_{1}+U_{2}\right)}\\
+ & =\left|U_{1}\right|^{2}+\left|U_{2}\right|^{2}+2\mathcal{R}\left(\overline{U_{1}}U_{2}\right)
+\end{alignedat}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $2\mathcal{R}\left(\overline{U_{1}}U_{2}\right)$
+\end_inset
+
+ is the interference term.
+ For coherent waves, its temporal average is not null.
+ But it disappears with temporal integration for incoherent waves.
+\end_layout
+
+\begin_layout Standard
+Let's now assume 
+\begin_inset Formula $nb_{plane}$
+\end_inset
+
+ incoherent waves 
+\begin_inset Formula $U_{p}$
+\end_inset
+
+ but coherent with a background wave 
+\begin_inset Formula $U_{BP}$
+\end_inset
+
+.
+ Let's determine the resulting intensity:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{alignedat}{1}\left|U_{tot}\right|^{2} & =\left(U_{BP}+\sum_{p=1}^{nb_{plane}}U_{p}\right)\overline{\left(U_{BP}+\sum_{p=1}^{nb_{plane}}U_{p}\right)}\\
+ & =\left|U_{BP}\right|^{2}+\sum_{p=1}^{nb_{plane}}\left(\left|U_{p}\right|^{2}+2\mathcal{R}\left(\overline{U_{BP}}U_{p}\right)\right)+\sum_{p\neq p'}\mathcal{R}\left(\overline{U_{p}}U_{p'}\right)
+\end{alignedat}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+According to the previous remark, 
+\begin_inset Formula $\forall\left(p,p'\right)$
+\end_inset
+
+, it comes 
+\begin_inset Formula $\mathcal{R}\left(\overline{U_{p}}U_{p'}\right)=0$
+\end_inset
+
+.
+ Then :
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{alignedat}{1}\left|U_{tot}\right|^{2} & =\left(1-nb_{plane}\right)\left|U_{BP}\right|^{2}+\sum_{p=1}^{nb_{plane}}\left(\left|U_{p}\right|^{2}+2\mathcal{R}\left(\overline{U_{BP}}U_{p}\right)+\left|U_{BP}\right|^{2}\right)\\
+ & =\left(1-nb_{plane}\right)\left|U_{BP}\right|^{2}+\sum_{p=1}^{nb_{plane}}\left|U_{p}+U_{BP}\right|^{2}
+\end{alignedat}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The direct model for incoherent waves is then:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{alignedat}{1}\left|U_{tot}\left(\theta\right)\right|^{2} & =\left(1-nb_{plane}\right)\left|U_{BP}\right|^{2}+\\cdots\\
+ & \quad\quad\quad\sum_{p=1}^{nb_{plane}}\left|U_{BP}+e^{-ikz_{p}}\left(pad^{-1}\left(P_{z_{p}}\circledast pad\left(e^{\frac{2i\pi}{\lambda}\theta_{p}}-1\right)\right)\right)\right|^{2}\\
+ & =\left(1-nb_{plane}\right)\left|U_{BP}\right|^{2}+\sum_{p=1}^{nb_{plane}}\left|U_{BP}+O_{p}\times\left(e^{\frac{2i\pi}{\lambda}\theta_{p}}-1\right)\right|^{2}
+\end{alignedat}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+with 
+\begin_inset Formula $O_{p}=e^{-ikz_{p}}pad^{-1}\circ P_{z_{p}}\circledast pad$
+\end_inset
+
+ a linear operator.
+\end_layout
+
+\begin_layout Standard
+Application of the hermitian transposition of the Jacobian at a given point
+ 
+\begin_inset Formula $\theta$
+\end_inset
+
+ for a given plane 
+\begin_inset Formula $p$
+\end_inset
+
+ computed in 
+\begin_inset Formula $y$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+J_{p}^{\star}\left(\theta\right)=-\frac{2i\pi}{\lambda}\frac{\overline{U_{BP}+O_{p}\times\left(e^{\frac{2i\pi}{\lambda}\theta_{p}}-1\right)}}{\left|U_{BP}+O_{p}\times\left(e^{\frac{2i\pi}{\lambda}\theta_{p}}-1\right)\right|}.e^{-\frac{2i\pi}{\lambda}\theta_{p}}.O_{p}^{\star}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Important note: this approach can correctly deal with the spatial coherence
+ length which can be different for each plane.
+\end_layout
+
+\begin_layout Section
+Cost function
+\end_layout
+
+\begin_layout Standard
+It is possible to take into account a global spatial coherence length by
+ convolving the simulated intensity 
+\begin_inset Formula $\left|U_{tot}\right|^{2}$
+\end_inset
+
+ by a filter 
+\begin_inset Formula $F_{coh}$
+\end_inset
+
+ corresponding to a diaphragm of the source seen by the sample and the sensor.
+ This is a strong approximation as it is supposed to be equal for all the
+ planes because it is applied after their interference.
+ In the following, 
+\begin_inset Formula $F_{coh}$
+\end_inset
+
+ being a linear operator, it is seen as its matrix shape.
+\end_layout
+
+\begin_layout Standard
+Intensity cost function for a given 
+\begin_inset Formula $\theta$
+\end_inset
+
+ and intensity data 
+\begin_inset Formula $I_{d}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+D\left(\theta\right)=\left\Vert F_{coh}\times\left|U_{tot}\left(\theta\right)\right|^{2}-I_{d}\right\Vert _{W}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Getting inspered by the appendix D of my PhD, let's now find the first order
+ development of 
+\begin_inset Formula $D\left(\theta+\delta\theta\right)$
+\end_inset
+
+ according to 
+\begin_inset Formula $\delta\theta$
+\end_inset
+
+.
+ Assuming that 
+\begin_inset Formula $\delta\theta$
+\end_inset
+
+ is real by decomposing the complex values on their real and imaginary part,
+ it comes:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{aligned}D\left(\theta+\delta\theta\right) & =\left\Vert F_{coh}\times\left|U_{tot}\left(\theta+\delta\theta\right)\right|^{2}-I_{d}\right\Vert _{W}^{2}\\
+ & =\left\Vert F_{coh}\times\left|U_{tot}\left(\theta\right)+J\left(\theta\right)\times\delta\theta\right|^{2}-I_{d}\right\Vert _{W}^{2}\\
+ & =\left\Vert F_{coh}\times\left(\left|U_{tot}\left(\theta\right)\right|^{2}+\left|J\left(\theta\right)\times\delta\theta\right|^{2}+\cdots\right.\right.\\
+ & \quad\quad\quad\left.\left.2\mathcal{R}\left(\overline{U_{tot}}\left(\theta\right).\left(J\left(\theta\right)\times\delta\theta\right)\right)\right)-I_{d}\right\Vert _{W}^{2}\\
+ & =\left\Vert F_{coh}\times\left|U_{tot}\left(\theta\right)\right|^{2}-I_{d}\right\Vert _{W}^{2}+\cdots\\
+ & \quad\quad\quad2\left\langle F_{coh}\times\left|U_{tot}\left(\theta\right)\right|^{2}-I_{d},F_{coh}\times\cdots\right.\\
+ & \quad\quad\quad\left.2\mathcal{R}\left(\overline{U_{tot}}\left(\theta\right).\left(J\left(\theta\right)\times\delta\theta\right)\right)\right\rangle _{W,\mathbb{R}}+o\left(\left\Vert \delta\theta\right\Vert \right)\\
+ & =D\left(\theta\right)+4\mathcal{R}\left\langle F_{coh}\times\left|U_{tot}\left(\theta\right)\right|^{2}-I_{d},F_{coh}\times\cdots\right.\\
+ & \quad\quad\quad\left.\overline{U_{tot}}\left(\theta\right).\left(J\left(\theta\right)\times\delta\theta\right)\right\rangle _{W,\mathbb{C}}+o\left(\left\Vert \delta\theta\right\Vert \right)\\
+ & =D\left(\theta\right)+4\mathcal{R}\left\langle W.\left(F_{coh}\times\left|U_{tot}\left(\theta\right)\right|^{2}-I_{d}\right),F_{coh}\times\cdots\right.\\
+ & \quad\quad\quad\left.\overline{U_{tot}}\left(\theta\right).\left(J\left(\theta\right)\times\delta\theta\right)\right\rangle _{\mathbb{C}}+o\left(\left\Vert \delta\theta\right\Vert \right)\\
+ & =D\left(\theta\right)+4\mathcal{R}\left\langle U_{tot}\left(\theta\right).F_{coh}^{\star}\times W.\left(F_{coh}\times\left|U_{tot}\left(\theta\right)\right|^{2}-I_{d}\right),\cdots\right.\\
+ & \quad\quad\quad\left.J\left(\theta\right)\times\delta\theta\right\rangle _{\mathbb{C}}+o\left(\left\Vert \delta\theta\right\Vert \right)\\
+ & =D\left(\theta\right)+4\mathcal{R}\left\langle J^{\star}\left(\theta\right)\times\left[U_{tot}\left(\theta\right).F_{coh}^{\star}\times W.\cdots\right.\right.\\
+ & \quad\quad\quad\left.\left.\left(F_{coh}\times\left|U_{tot}\left(\theta\right)\right|^{2}-I_{d}\right)\right],\delta\theta\right\rangle _{\mathbb{C}}+o\left(\left\Vert \delta\theta\right\Vert \right)\\
+ & =D\left(\theta\right)+\left\langle 4\mathcal{R}\left[J^{\star}\left(\theta\right)\times\left[U_{tot}\left(\theta\right).F_{coh}^{\star}\times W.\cdots\right.\right.\right.\\
+ & \quad\quad\quad\left.\left.\left.\left(F_{coh}\times\left|U_{tot}\left(\theta\right)\right|^{2}-I_{d}\right)\right]\right],\delta\theta\right\rangle _{\mathbb{R}}+o\left(\left\Vert \delta\theta\right\Vert \right)
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The gradient is then:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nabla D\left(\theta\right)=4\mathcal{R}\left[J^{\star}\left(\theta\right)\times\left[U_{tot}\left(\theta\right).F_{coh}^{\star}\times W.\left(F_{coh}\times\left|U_{tot}\left(\theta\right)\right|^{2}-I_{d}\right)\right]\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note here that it assumes that 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is decomposed on its real and imaginary part.
+ Using the formalism presented in the chapter 3, section 3.3 for my PhD,
+ it is possible to directly express the gradient in terms of complex values:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nabla D\left(\theta\right)=4J^{\star}\left(\theta\right)\times\left[U_{tot}\left(\theta\right).F_{coh}^{\star}\times W.\left(F_{coh}\times\left|U_{tot}\left(\theta\right)\right|^{2}-I_{d}\right)\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

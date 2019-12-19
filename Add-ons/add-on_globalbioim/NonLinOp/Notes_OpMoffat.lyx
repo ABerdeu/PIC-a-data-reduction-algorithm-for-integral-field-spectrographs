@@ -1,0 +1,395 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass extarticle
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 1
+\tocdepth 1
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Moffat pattern
+\end_layout
+
+\begin_layout Standard
+Simulation of a gaussian pattern according to a list of parameters 
+\begin_inset Formula $\left\{ x_{c},y_{c},\theta,\alpha_{\parallel},\alpha_{\perp},\beta,a,o\right\} $
+\end_inset
+
+ where 
+\begin_inset Formula $x_{c}$
+\end_inset
+
+and 
+\begin_inset Formula $y_{c}$
+\end_inset
+
+ are the coordinate of the center of the gaussian pattern, 
+\begin_inset Formula $\theta$
+\end_inset
+
+ its orientation (in degree), 
+\begin_inset Formula $\alpha_{\parallel}$
+\end_inset
+
+ its elongation along the parralel axis given by 
+\begin_inset Formula $\theta$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{\perp}$
+\end_inset
+
+ its elongation along the orthogonal axis given by 
+\begin_inset Formula $\theta$
+\end_inset
+
+, 
+\begin_inset Formula $a$
+\end_inset
+
+ its amplitude and 
+\begin_inset Formula $o$
+\end_inset
+
+ its offset:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{alignedat}{1}M\left(x_{c},y_{c},\theta,\alpha_{\parallel},\alpha_{\perp},\beta,a,o\right)={} & a.\left\{ 1+\left[\left[\frac{\left(x-x_{c}\right)\cos\left(\frac{\pi}{180}\theta\right)+\left(y-y_{c}\right)\sin\left(\frac{\pi}{180}\theta\right)}{\alpha_{\parallel}}\right]^{2}\right.\right.\\
+ & \left.\left.+\left[\frac{-\left(x-x_{c}\right)\sin\left(\frac{\pi}{180}\theta\right)+\left(y-y_{c}\right)\cos\left(\frac{\pi}{180}\theta\right)}{\alpha_{\perp}}\right]^{2}\right]\right\} ^{-\beta}+o\\
+={} & a.\left\{ 1+\left[\left(\frac{\cos^{2}\left(\frac{\pi}{180}\theta\right)}{\alpha_{\parallel}^{2}}+\frac{\sin^{2}\left(\frac{\pi}{180}\theta\right)}{\alpha_{\perp}^{2}}\right)\left(x-x_{c}\right)^{2}\right.\right.\\
+ & +\left(\frac{\sin^{2}\left(\frac{\pi}{180}\theta\right)}{\alpha_{\parallel}^{2}}+\frac{\cos^{2}\left(\frac{\pi}{180}\theta\right)}{\alpha_{\perp}^{2}}\right)\left(y-y_{c}\right)^{2}\\
+ & \left.\left.+2\left(x-x_{c}\right)\left(y-y_{c}\right)\cos\left(\frac{\pi}{180}\theta\right)\sin\left(\frac{\pi}{180}\theta\right)\left(\frac{1}{\alpha_{\parallel}^{2}}-\frac{1}{\alpha_{\perp}^{2}}\right)\right]\right\} ^{-\beta}\\
+ & +o\\
+={} & a.\left\{ 1+\left[\left(\frac{1}{\alpha_{\perp}^{2}}+\left(\frac{1}{\alpha_{\parallel}^{2}}-\frac{1}{\alpha_{\perp}^{2}}\right)\cos^{2}\left(\frac{\pi}{180}\theta\right)\right)\left(x-x_{c}\right)^{2}\right.\right.\\
+ & +\left(\frac{1}{\alpha_{\perp}^{2}}+\left(\frac{1}{\alpha_{\parallel}^{2}}-\frac{1}{\alpha_{\perp}^{2}}\right)\sin^{2}\left(\frac{\pi}{180}\theta\right)\right)\left(y-y_{c}\right)^{2}\\
+ & \left.\left.+\left(x-x_{c}\right)\left(y-y_{c}\right)\sin\left(\frac{\pi}{90}\theta\right)\left(\frac{1}{\sigma_{\parallel}^{2}}-\frac{1}{\sigma_{\perp}^{2}}\right)\right]\right\} ^{-\beta}+o\\
+={} & a.B\left(x_{c},y_{c},\theta,\alpha_{\parallel},\alpha_{\perp}\right)+o
+\end{alignedat}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+with:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{alignedat}{1}B\left(x_{c},y_{c},\theta,\alpha_{\parallel},\alpha_{\perp}\right)={} & \left\{ 1+\left[\left[\frac{\left(x-x_{c}\right)\cos\left(\frac{\pi}{180}\theta\right)+\left(y-y_{c}\right)\sin\left(\frac{\pi}{180}\theta\right)}{\alpha_{\parallel}}\right]^{2}\right.\right.\\
+ & \left.\left.+\left[\frac{-\left(x-x_{c}\right)\sin\left(\frac{\pi}{180}\theta\right)+\left(y-y_{c}\right)\cos\left(\frac{\pi}{180}\theta\right)}{\alpha_{\perp}}\right]^{2}\right]\right\} ^{-\beta}
+\end{alignedat}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If axisymmetric:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+M\left(x_{c},y_{c},\alpha,\beta,a,o\right)=a.\left(1+\frac{\left(x-x_{c}\right)^{2}+\left(y-y_{c}\right)^{2}}{\alpha^{2}}\right)^{-\beta}+o
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+B\left(x_{c},y_{c},\alpha,\beta\right)=\left(1+\frac{\left(x-x_{c}\right)^{2}+\left(y-y_{c}\right)^{2}}{\alpha^{2}}\right)^{-\beta}=A\left(x_{c},y_{c},\alpha\right)^{-\beta}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A\left(x_{c},y_{c},\alpha\right)=1+\frac{\left(x-x_{c}\right)^{2}+\left(y-y_{c}\right)^{2}}{\alpha^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Partial derivatives (axisymmetric)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial A^{-\beta}}{\partial A}=-a\beta A^{-\beta-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial M}{\partial x_{c}}=\frac{2a\beta}{\alpha^{2}}\left(x-x_{c}\right)A\left(x_{c},y_{c},\alpha\right)^{-\beta-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial M}{\partial y_{c}}=\frac{2a\beta}{\alpha^{2}}\left(y-y_{c}\right)A\left(x_{c},y_{c},\alpha\right)^{-\beta-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial M}{\partial\alpha}=2a\beta\frac{\left(x-x_{c}\right)^{2}+\left(y-y_{c}\right)^{2}}{\alpha^{3}}A\left(x_{c},y_{c},\alpha\right)^{-\beta-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial M}{\partial\beta}=\frac{\partial e^{-\beta.\ln A\left(x_{c},y_{c},\alpha\right)}}{\partial\beta}=-a\ln A\left(x_{c},y_{c},\alpha\right)A\left(x_{c},y_{c},\alpha\right)^{-\beta}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial M}{\partial a}=B\left(x_{c},y_{c},\alpha,\beta\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial M}{\partial o}=\boldsymbol{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Normalization
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{alignedat}{1}M\left(x_{c},y_{c},\alpha,\beta,a,o\right)={} & a.\frac{\beta-1}{\pi\alpha^{2}}\left(1+\frac{\left(x-x_{c}\right)^{2}+\left(y-y_{c}\right)^{2}}{\alpha^{2}}\right)^{-\beta}+o\\
+={} & a.\frac{\beta-1}{\pi\alpha^{2}}A\left(x_{c},y_{c},\alpha\right)^{-\beta}+o\\
+={} & a.\frac{\beta-1}{\pi\alpha^{2}}B\left(x_{c},y_{c},\alpha,\beta\right)+o
+\end{alignedat}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+B\left(x_{c},y_{c},\alpha,\beta\right)=\left(1+\frac{\left(x-x_{c}\right)^{2}+\left(y-y_{c}\right)^{2}}{\alpha^{2}}\right)^{-\beta}=A\left(x_{c},y_{c},\alpha\right)^{-\beta}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A\left(x_{c},y_{c},\alpha\right)=1+\frac{\left(x-x_{c}\right)^{2}+\left(y-y_{c}\right)^{2}}{\alpha^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and then
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial M}{\partial x_{c}}=\frac{2a\beta}{\alpha^{2}}\frac{\beta-1}{\pi\alpha^{2}}\left(x-x_{c}\right)A\left(x_{c},y_{c},\alpha\right)^{-\beta-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial M}{\partial y_{c}}=\frac{2a\beta}{\alpha^{2}}\frac{\beta-1}{\pi\alpha^{2}}\left(y-y_{c}\right)A\left(x_{c},y_{c},\alpha\right)^{-\beta-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial M}{\partial\alpha}=\frac{2a\left(\beta-1\right)}{\pi\alpha^{3}}\left(\frac{\beta}{\alpha^{2}}\left(\left(x-x_{c}\right)^{2}+\left(y-y_{c}\right)^{2}\right)-A\left(x_{c},y_{c},\alpha\right)\right)A\left(x_{c},y_{c},\alpha\right)^{-\beta-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial M}{\partial\beta}=\frac{\partial e^{-\beta.\ln A\left(x_{c},y_{c},\alpha\right)}}{\partial\beta}=\frac{a}{\pi\alpha^{2}}.\left(1-\left(\beta-1\right)\ln A\left(x_{c},y_{c},\alpha\right)\right)A\left(x_{c},y_{c},\alpha\right)^{-\beta}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial M}{\partial a}=\frac{\beta-1}{\pi\alpha^{2}}B\left(x_{c},y_{c},\alpha,\beta\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial M}{\partial o}=\boldsymbol{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

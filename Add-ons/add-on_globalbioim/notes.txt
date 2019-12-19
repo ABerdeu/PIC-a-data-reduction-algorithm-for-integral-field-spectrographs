@@ -1,0 +1,7 @@
+My modification to the official GlobalBioIm (files with "my_" prefixe)
+-> Problem with LinOpConv and centered 'PSF'. Wrong use of fftshift
+-> Modification of LinOpSelectorPatch to squeeze singleton dimensions
+-> New definition of CostL1 for positivity or negativity constraints to compute the gradient on singleton dimensions
+-> Error in CostHyperBolic for index == 0
+-> Error in LinOpBroadcast for vectors. Modification of the squeeze option in applyAdjoint_ by a reshape. Indeed, there is a problem in the case of vectors as inputs.
+
